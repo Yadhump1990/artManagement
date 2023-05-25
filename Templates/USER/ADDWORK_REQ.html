@@ -1,0 +1,31 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>ADD WORK REQ</title>-->
+<!--</head>-->
+{% extends 'userIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="sent_work_req">
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">ARTWORK NAME</th>
+        <td><label for="textfield"></label>
+        <input type="text" name="textfield" id="textfield"></td>
+      </tr>
+      <tr>
+        <th scope="row">DESCRIPTION</th>
+        <td><label for="textarea"></label>
+        <textarea name="textarea" id="textarea"></textarea></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="SENT"></th>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

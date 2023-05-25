@@ -1,0 +1,43 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>manageArtwork</title>-->
+<!--</head>-->
+{% extends 'artistIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE ARTWORK</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">ARTWORK NAME</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">AVAILABILITY</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">DATE_CREATED</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.availability}}</td>
+        <td><img src="{{i.image.url}}" width="100" height="100"/></td>
+        <td>{{i.description}}</td>
+        <td>{{i.date_created}}</td>
+        <td><a href="{% url 'editArtwork' id=i.id  %}">EDIT</a></td>
+      </tr>
+    {% endfor %}
+      <tr>
+        <td colspan="7"><CENTER><a href="addArtwork">ADD</a></CENTER></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

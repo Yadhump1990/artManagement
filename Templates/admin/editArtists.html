@@ -1,0 +1,60 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>EDITARTISTS</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'updateArtist' %}">
+  <h1>EDIT ARTIST</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="row">ARTIST NAME</th>
+        <td><label for="textfield"></label>
+          <input type="text" name="name" id="textfield" value="{{val.name}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">AGE</th>
+        <td><label for="number"></label>
+          <input type="number" name="age" id="number" value="{{val.age}}"></td>
+      </tr>
+      <tr>
+        <th scope="row">JOINING_DATE</th>
+        <td><label for="date"></label>
+          <input type="date" name="date" id="date" value="{{ val.joining_date|date:'Y-m-d' }}"></td>
+      </tr>
+      <tr>
+        <th scope="row">WORK_EXPERIENCE</th>
+        <td><label for="number2"></label>
+          <input type="number" name="number2" id="number2" value="{{val.work_experience}}" ></td>
+      </tr>
+      <tr>
+        <th scope="row">GENDER</th>
+        <td><input type="radio" name="radio" id="radio" value="male" {% if val.gender == 'male' %} checked{% endif %}>
+          <label for="radio">MALE
+            <input type="radio" name="radio" id="radio2" value="female" {% if val.gender == 'female' %} checked{% endif %}>
+            FEMALE </label></td>
+      </tr>
+      <tr>
+        <th scope="row">ADDRESS</th>
+        <td><label for="textarea"></label>
+          <textarea name="textarea" id="textarea">{{val.address}}</textarea></td>
+      </tr>
+      <tr>
+        <th scope="row">PHONE</th>
+        <td><label for="tel"></label>
+          <input type="tel" name="tel" id="tel" value="{{val.phone}}"></td>
+      </tr>
+      <tr>
+        <th colspan="2" scope="row"><input type="submit" name="submit" id="submit" value="UPDATE"></th>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp; </p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

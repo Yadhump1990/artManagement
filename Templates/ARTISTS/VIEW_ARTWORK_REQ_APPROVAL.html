@@ -1,0 +1,45 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_ARTWORK_REQ_UPDT_STATUS</title>-->
+<!--</head>-->
+{% extends 'artistIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW ARTWORK REQUEST AND APPROVAL</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">CUSTOMER NAME</th>
+        <th scope="col">ARTNAME</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.uid.fname}} {{i.uid.lname}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.description}}</td>
+
+        <td>
+          {% if i.staus == 'pending' %}
+          <p><a href="{% url 'acceptReq' id=i.id %}">approve</a></p>
+        <p><a href="{% url 'rejectReq' id=i.id %}">REJECT</a></p>
+        {% elif i.staus == 'approved' %}
+        Accepted
+        {% else %}
+        Rejected
+        {% endif %}
+        </td>
+
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

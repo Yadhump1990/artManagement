@@ -1,0 +1,45 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>VIEW_ARTIST_ARTWORK_PUT_FOR_SALE</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>VIEW ARTIST ARTWORK AND PUT IT FOR SALE</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">ARTWORK TITLE</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">ARTIST NAME</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.awid.name}}</td>
+        <td>{{i.awid.prive}}</td>
+        <td>{{i.aid.name}}</td>
+        <td><img src="{{i.awid.image.url}}" width="100" height="100"/></td>
+        <td>{{i.awid.description}}</td>
+
+        <td>
+          {% if i.status == 'on_sale' %}
+        ON SALE
+        {% else %}
+          <a href="{% url 'putForsale' id=i.id %}">PUT IT FOR SALE</a>
+        {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

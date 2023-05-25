@@ -1,0 +1,43 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>ARTWORK_SELL_REQ</title>-->
+<!--</head>-->
+{% extends 'artistIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>ARTWORK SELL REQUEST</h1>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">ARTWORK NAME</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">AVAILABILITY</th>
+        <th scope="col">IMAGE</th>
+        <th scope="col">DESCRIPTION</th>
+        <th scope="col">DATE_CREATED</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {%  for i in val %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.availability}}</td>
+        <td><img src="{{i.image.url}}" width="100" height="100"/></td>
+        <td>{{i.description}}</td>
+        <td>{{i.date_created}}</td>
+        <td>
+          <p><a href="{% url 'sellReq' id=i.id %}">SELL REQUEST</a></p>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

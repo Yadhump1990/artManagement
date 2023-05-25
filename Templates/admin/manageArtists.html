@@ -1,0 +1,46 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+<!--<title>manageArtist</title>-->
+<!--</head>-->
+{% extends 'adminIndex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post">
+  <h1>MANAGE ARTIST</h1>
+  <table width="200" border="1">
+    <tbody>
+      <tr>
+        <th scope="col">ARTIST NAME</th>
+        <th scope="col">AGE</th>
+        <th scope="col">JOINING_DATE</th>
+        <th scope="col">WORK_EXPERIENCE</th>
+        <th scope="col">GENDER</th>
+        <th scope="col">ADDRESS</th>
+        <th scope="col">PHONE</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+      {% for i in val %}
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.joining_date}}</td>
+        <td>{{i.work_experience}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.phone}}</td>
+        <td><p><a href="{% url 'editArtist' id=i.id %}">EDIT</a></p>
+        <p><a href="{% url 'delArtist' id=i.lid.id %}">DELETE</a></p></td>
+      </tr>
+      {% endfor %}
+      <tr>
+		  <td colspan="8"><CENTER><a href="addArtists">ADD ARTIST</a></CENTER></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
